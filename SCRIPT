@@ -1,0 +1,521 @@
+local bitlibrary = {}
+
+function ShiftGui(Frame, List)
+	for _, v in pairs(List:GetChildren()) do
+		v.Visible = false
+		Frame.Visible = true
+	end
+end
+
+function bitlibrary:CreateWindow(Name)
+	local Bithub = Instance.new("ScreenGui")
+	local Main = Instance.new("ImageLabel")
+	local Background = Instance.new("ImageLabel")
+	local TextLabel = Instance.new("TextLabel")
+	local TabButtonBackground = Instance.new("ImageLabel")
+	local TabButtonList = Instance.new("Frame")
+	local TabButtonLayout = Instance.new("UIGridLayout")
+	local TabList = Instance.new("ImageLabel")
+	
+	Bithub.Name = "Bithub"
+	Bithub.Parent = game.Players.LocalPlayer.PlayerGui
+	
+	Main.Name = "Main"
+	Main.Parent = Bithub
+	Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Main.BackgroundTransparency = 1.000
+	Main.Position = UDim2.new(0.512390077, 0, 0.425266892, 0)
+	Main.Size = UDim2.new(0, 441, 0, 239)
+	Main.Image = "rbxassetid://3570695787"
+	Main.ImageColor3 = Color3.fromRGB(72, 72, 72)
+	Main.ScaleType = Enum.ScaleType.Slice
+	Main.SliceCenter = Rect.new(100, 100, 100, 100)
+	Main.SliceScale = 0.060
+	Main.Active = true
+	Main.Draggable = true
+	
+	Background.Name = "Background"
+	Background.Parent = Main
+	Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Background.BackgroundTransparency = 1.000
+	Background.Position = UDim2.new(0.298103303, 0, 0.0292887036, 0)
+	Background.Size = UDim2.new(0, 298, 0, 224)
+	Background.ZIndex = 2
+	Background.Image = "rbxassetid://3570695787"
+	Background.ImageColor3 = Color3.fromRGB(56, 56, 56)
+	Background.ScaleType = Enum.ScaleType.Slice
+	Background.SliceCenter = Rect.new(100, 100, 100, 100)
+	Background.SliceScale = 0.060
+	
+	TextLabel.Parent = Background
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 1.000
+	TextLabel.Position = UDim2.new(0.194361016, 0, -0.0351007134, 0)
+	TextLabel.Size = UDim2.new(0, 200, 0, 32)
+	TextLabel.ZIndex = 2
+	TextLabel.Font = Enum.Font.GothamBold
+	TextLabel.Text = Name
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+	
+	TabButtonBackground.Name = "TabButtonBackground"
+	TabButtonBackground.Parent = Main
+	TabButtonBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabButtonBackground.BackgroundTransparency = 1.000
+	TabButtonBackground.Position = UDim2.new(0.0237268973, 0, 0.0292887036, 0)
+	TabButtonBackground.Size = UDim2.new(0, 112, 0, 224)
+	TabButtonBackground.ZIndex = 2
+	TabButtonBackground.Image = "rbxassetid://3570695787"
+	TabButtonBackground.ImageColor3 = Color3.fromRGB(56, 56, 56)
+	TabButtonBackground.ScaleType = Enum.ScaleType.Slice
+	TabButtonBackground.SliceCenter = Rect.new(100, 100, 100, 100)
+	TabButtonBackground.SliceScale = 0.060
+	
+	TabButtonList.Name = "TabButtonList"
+	TabButtonList.Parent = TabButtonBackground
+	TabButtonList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabButtonList.BackgroundTransparency = 1.000
+	TabButtonList.Position = UDim2.new(0, 0, 0.03125, 0)
+	TabButtonList.Size = UDim2.new(0, 112, 0, 209)
+	TabButtonList.ZIndex = 2
+	
+	TabButtonLayout.Name = "TabButtonLayout"
+	TabButtonLayout.Parent = TabButtonList
+	TabButtonLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	TabButtonLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	TabButtonLayout.CellSize = UDim2.new(0, 93, 0, 33)
+	
+	TabList.Name = "TabList"
+	TabList.Parent = Main
+	TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabList.BackgroundTransparency = 1.000
+	TabList.Position = UDim2.new(0.298103303, 0, 0.130282223, 0)
+	TabList.Size = UDim2.new(0, 298, 0, 199)
+	TabList.ZIndex = 2
+	TabList.Image = "rbxassetid://3570695787"
+	TabList.ImageColor3 = Color3.fromRGB(56, 56, 56)
+	TabList.ScaleType = Enum.ScaleType.Slice
+	TabList.SliceCenter = Rect.new(100, 100, 100, 100)
+	TabList.SliceScale = 0.060
+	
+	local tabs = {}
+	
+	function tabs:CreateTab(Name)
+		local EXAMPLEButton = Instance.new("TextButton")
+		local TabButtonImageFrame = Instance.new("ImageLabel")
+		local EXAMPLEFrame = Instance.new("ScrollingFrame")
+		local UIGridLayout = Instance.new("UIGridLayout")
+		
+		EXAMPLEButton.Name = Name
+		EXAMPLEButton.Parent = TabButtonList
+		EXAMPLEButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		EXAMPLEButton.BackgroundTransparency = 1.000
+		EXAMPLEButton.BorderSizePixel = 0
+		EXAMPLEButton.Position = UDim2.new(0.107142858, 0, 0.0357142873, 0)
+		EXAMPLEButton.Size = UDim2.new(0, 93, 0, 33)
+		EXAMPLEButton.ZIndex = 3
+		EXAMPLEButton.Font = Enum.Font.GothamBold
+		EXAMPLEButton.Text = Name
+		EXAMPLEButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		EXAMPLEButton.TextScaled = true
+		EXAMPLEButton.TextSize = 14.000
+		EXAMPLEButton.TextWrapped = true
+		
+		TabButtonImageFrame.Name = "TabButtonImageFrame"
+		TabButtonImageFrame.Parent = EXAMPLEButton
+		TabButtonImageFrame.Active = true
+		TabButtonImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+		TabButtonImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabButtonImageFrame.BackgroundTransparency = 1.000
+		TabButtonImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+		TabButtonImageFrame.Selectable = true
+		TabButtonImageFrame.Size = UDim2.new(1, 0, 1, 0)
+		TabButtonImageFrame.ZIndex = 2
+		TabButtonImageFrame.Image = "rbxassetid://3570695787"
+		TabButtonImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+		TabButtonImageFrame.ScaleType = Enum.ScaleType.Slice
+		TabButtonImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+		TabButtonImageFrame.SliceScale = 0.060
+		
+		EXAMPLEFrame.Name = Name.."Frame"
+		EXAMPLEFrame.Parent = TabList
+		EXAMPLEFrame.Active = true
+		EXAMPLEFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		EXAMPLEFrame.BackgroundTransparency = 1.000
+		EXAMPLEFrame.Size = UDim2.new(0, 286, 0, 199)
+		EXAMPLEFrame.ZIndex = 2
+		EXAMPLEFrame.ScrollBarThickness = 6
+		EXAMPLEFrame.Visible = false
+		
+		UIGridLayout.Parent = EXAMPLEFrame
+		UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		UIGridLayout.CellSize = UDim2.new(0, 275, 0, 23)
+		
+		EXAMPLEButton.MouseButton1Up:Connect(function()
+			ShiftGui(EXAMPLEFrame, TabList)
+		end)
+		
+		local frames = {}
+		
+		function frames:CreateButton(Text, callback)
+			
+			Text = Text or "NIL"
+			callback = callback or function() end
+			
+			local ListButton = Instance.new("TextButton")
+			local ListButtonImageFrame = Instance.new("ImageLabel")
+			
+			ListButton.Name = Text
+			ListButton.Parent = EXAMPLEFrame
+			ListButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ListButton.BackgroundTransparency = 1.000
+			ListButton.BorderSizePixel = 0
+			ListButton.Position = UDim2.new(0.0366731174, 0, 0.0357143059, 0)
+			ListButton.Size = UDim2.new(0, 275, 0, 23)
+			ListButton.ZIndex = 3
+			ListButton.Font = Enum.Font.GothamBold
+			ListButton.Text = Text
+			ListButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			ListButton.TextScaled = true
+			ListButton.TextSize = 14.000
+			ListButton.TextWrapped = true
+			
+			ListButtonImageFrame.Name = "ListButtonImageFrame"
+			ListButtonImageFrame.Parent = ListButton
+			ListButtonImageFrame.Active = true
+			ListButtonImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+			ListButtonImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ListButtonImageFrame.BackgroundTransparency = 1.000
+			ListButtonImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+			ListButtonImageFrame.Selectable = true
+			ListButtonImageFrame.Size = UDim2.new(1, 0, 1, 0)
+			ListButtonImageFrame.ZIndex = 2
+			ListButtonImageFrame.Image = "rbxassetid://3570695787"
+			ListButtonImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+			ListButtonImageFrame.ScaleType = Enum.ScaleType.Slice
+			ListButtonImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			ListButtonImageFrame.SliceScale = 0.060
+			
+			ListButton.MouseButton1Up:Connect(function()
+				pcall(callback)
+			end)
+			
+		end
+		
+		function frames:CreateLabel(Text)
+			local TextLabelFrame = Instance.new("ImageLabel")
+			local TextLabelImageFrame = Instance.new("ImageLabel")
+			local Label = Instance.new("TextLabel")
+			
+			TextLabelFrame.Name = Text
+			TextLabelFrame.Parent = EXAMPLEFrame
+			TextLabelFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabelFrame.BackgroundTransparency = 1.000
+			TextLabelFrame.Size = UDim2.new(0, 100, 0, 100)
+			TextLabelFrame.ZIndex = 2
+			TextLabelFrame.Image = "rbxassetid://3570695787"
+			TextLabelFrame.ScaleType = Enum.ScaleType.Slice
+			TextLabelFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			TextLabelFrame.SliceScale = 0.060
+			
+			TextLabelImageFrame.Name = "TextLabelImageFrame"
+			TextLabelImageFrame.Parent = TextLabelFrame
+			TextLabelImageFrame.Active = true
+			TextLabelImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+			TextLabelImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabelImageFrame.BackgroundTransparency = 1.000
+			TextLabelImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+			TextLabelImageFrame.Selectable = true
+			TextLabelImageFrame.Size = UDim2.new(1, 0, 1, 0)
+			TextLabelImageFrame.ZIndex = 2
+			TextLabelImageFrame.Image = "rbxassetid://3570695787"
+			TextLabelImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+			TextLabelImageFrame.ScaleType = Enum.ScaleType.Slice
+			TextLabelImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			TextLabelImageFrame.SliceScale = 0.060
+			
+			Label.Name = "Label"
+			Label.Parent = TextLabelFrame
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Size = UDim2.new(0, 275, 0, 22)
+			Label.ZIndex = 2
+			Label.Font = Enum.Font.GothamBold
+			Label.Text = Text
+			Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Label.TextScaled = true
+			Label.TextSize = 14.000
+			Label.TextWrapped = true
+			
+		end
+		
+		function frames:CreateToggle(Text, state, callback)
+			Text = Text or "NIL"
+			state = state or false
+			callback = callback or function() end
+			
+			local ToggleFrame = Instance.new("ImageLabel")
+			local ToggleButton = Instance.new("TextButton")
+			local ListToggleImageFrame = Instance.new("ImageLabel")
+			local ToggleName = Instance.new("TextLabel")
+			
+			ToggleFrame.Name = Text
+			ToggleFrame.Parent = EXAMPLEFrame
+			ToggleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleFrame.BackgroundTransparency = 1.000
+			ToggleFrame.Size = UDim2.new(0, 100, 0, 100)
+			ToggleFrame.ZIndex = 2
+			ToggleFrame.Image = "rbxassetid://3570695787"
+			ToggleFrame.ScaleType = Enum.ScaleType.Slice
+			ToggleFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			ToggleFrame.SliceScale = 0.060
+			
+			ToggleButton.Name = "ToggleButton"
+			ToggleButton.Parent = ToggleFrame
+			ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleButton.BorderSizePixel = 0
+			ToggleButton.Position = UDim2.new(0.0536365435, 0, 0.0475211814, 0)
+			ToggleButton.Size = UDim2.new(0, 20, 0, 20)
+			ToggleButton.ZIndex = 3
+			ToggleButton.Font = Enum.Font.SourceSans
+			ToggleButton.Text = ""
+			ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleButton.TextSize = 14.000
+			
+			ListToggleImageFrame.Name = "ListToggleImageFrame"
+			ListToggleImageFrame.Parent = ToggleFrame
+			ListToggleImageFrame.Active = true
+			ListToggleImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+			ListToggleImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ListToggleImageFrame.BackgroundTransparency = 1.000
+			ListToggleImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+			ListToggleImageFrame.Selectable = true
+			ListToggleImageFrame.Size = UDim2.new(1, 0, 1, 0)
+			ListToggleImageFrame.ZIndex = 2
+			ListToggleImageFrame.Image = "rbxassetid://3570695787"
+			ListToggleImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+			ListToggleImageFrame.ScaleType = Enum.ScaleType.Slice
+			ListToggleImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			ListToggleImageFrame.SliceScale = 0.060
+			
+			ToggleName.Name = "ToggleName"
+			ToggleName.Parent = ToggleFrame
+			ToggleName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleName.BackgroundTransparency = 1.000
+			ToggleName.Position = UDim2.new(0.190616563, 0, 0.0434782617, 0)
+			ToggleName.Size = UDim2.new(0, 212, 0, 22)
+			ToggleName.ZIndex = 2
+			ToggleName.Font = Enum.Font.GothamBold
+			ToggleName.Text = Text
+			ToggleName.TextColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleName.TextScaled = true
+			ToggleName.TextSize = 14.000
+			ToggleName.TextWrapped = true
+			
+			local TweenService = game:GetService("TweenService")
+			local transitionInfo = TweenInfo.new(0.5, Enum.EasingStyle.Back)
+			
+			local function Fire()
+				state = not state
+				local tween = TweenService:Create(ToggleButton, transitionInfo, {BackgroundColor3 = Color3.new(1, 1, 1)})
+				local tween2 = TweenService:Create(ToggleButton, transitionInfo, {BackgroundColor3 = Color3.new(0.333333, 1, 0)})
+				if not state then
+					tween:Play()
+                    pcall(callback, state)
+				else
+					tween2:Play()
+                    pcall(callback, state)
+				end
+			end
+			
+			ToggleButton.MouseButton1Up:Connect(Fire)
+			
+		end
+		function frames:CreateBox(Text, PlaceholderText)
+			Text = Text or "NIL"
+			PlaceholderText = PlaceholderText or "NIL"
+			
+			local TextBoxFrame = Instance.new("ImageLabel")
+			local ListTextBoxImageFrame = Instance.new("ImageLabel")
+			local TextBox = Instance.new("TextBox")
+			
+			TextBoxFrame.Name = Text
+			TextBoxFrame.Parent = EXAMPLEFrame
+			TextBoxFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextBoxFrame.BackgroundTransparency = 1.000
+			TextBoxFrame.Size = UDim2.new(0, 100, 0, 100)
+			TextBoxFrame.ZIndex = 2
+			TextBoxFrame.Image = "rbxassetid://3570695787"
+			TextBoxFrame.ScaleType = Enum.ScaleType.Slice
+			TextBoxFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			TextBoxFrame.SliceScale = 0.060
+			
+			ListTextBoxImageFrame.Name = "ListTextBoxImageFrame"
+			ListTextBoxImageFrame.Parent = TextBoxFrame
+			ListTextBoxImageFrame.Active = true
+			ListTextBoxImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+			ListTextBoxImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ListTextBoxImageFrame.BackgroundTransparency = 1.000
+			ListTextBoxImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+			ListTextBoxImageFrame.Selectable = true
+			ListTextBoxImageFrame.Size = UDim2.new(1, 0, 1, 0)
+			ListTextBoxImageFrame.ZIndex = 2
+			ListTextBoxImageFrame.Image = "rbxassetid://3570695787"
+			ListTextBoxImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+			ListTextBoxImageFrame.ScaleType = Enum.ScaleType.Slice
+			ListTextBoxImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			ListTextBoxImageFrame.SliceScale = 0.060
+			
+			TextBox.Parent = TextBoxFrame
+			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.BackgroundTransparency = 1.000
+			TextBox.Position = UDim2.new(6.65838058e-07, 0, 0, 0)
+			TextBox.Size = UDim2.new(0, 274, 0, 22)
+			TextBox.ZIndex = 2
+			TextBox.Font = Enum.Font.GothamBold
+			TextBox.PlaceholderColor3 = Color3.fromRGB(204, 204, 204)
+			TextBox.PlaceholderText = PlaceholderText
+			TextBox.Text = Text
+			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.TextScaled = true
+			TextBox.TextSize = 14.000
+			TextBox.TextWrapped = true
+			
+		end
+		function frames:CreateSlider(text, minvalue, maxvalue, callback)
+			text = text or "NIL"
+			minvalue = minvalue or 0
+			maxvalue = maxvalue or 100
+			callback = callback or function() end
+			
+			local SliderFrame = Instance.new("ImageLabel")
+			local SliderImageFrame = Instance.new("ImageLabel")
+			local TheSliderBackground = Instance.new("Frame")
+			local SliderButton = Instance.new("TextButton")
+			local SliderValue = Instance.new("TextLabel")
+			local SliderBackground = Instance.new("ImageLabel")
+			local SliderText = Instance.new("TextLabel")
+			
+			SliderFrame.Name = text
+			SliderFrame.Parent = EXAMPLEFrame
+			SliderFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderFrame.BackgroundTransparency = 1.000
+			SliderFrame.Size = UDim2.new(0, 100, 0, 100)
+			SliderFrame.ZIndex = 2
+			SliderFrame.Image = "rbxassetid://3570695787"
+			SliderFrame.ScaleType = Enum.ScaleType.Slice
+			SliderFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			SliderFrame.SliceScale = 0.060
+			
+			SliderImageFrame.Name = "SliderImageFrame"
+			SliderImageFrame.Parent = SliderFrame
+			SliderImageFrame.Active = true
+			SliderImageFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+			SliderImageFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderImageFrame.BackgroundTransparency = 1.000
+			SliderImageFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+			SliderImageFrame.Selectable = true
+			SliderImageFrame.Size = UDim2.new(1, 0, 1, 0)
+			SliderImageFrame.ZIndex = 2
+			SliderImageFrame.Image = "rbxassetid://3570695787"
+			SliderImageFrame.ImageColor3 = Color3.fromRGB(95, 95, 95)
+			SliderImageFrame.ScaleType = Enum.ScaleType.Slice
+			SliderImageFrame.SliceCenter = Rect.new(100, 100, 100, 100)
+			SliderImageFrame.SliceScale = 0.060
+			
+			TheSliderBackground.Name = "TheSliderBackground"
+			TheSliderBackground.Parent = SliderFrame
+			TheSliderBackground.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+			TheSliderBackground.ClipsDescendants = true
+			TheSliderBackground.Position = UDim2.new(0.334545463, 0, 0.173913047, 0)
+			TheSliderBackground.Size = UDim2.new(0, 174, 0, 15)
+			TheSliderBackground.ZIndex = 2
+			
+			SliderButton.Name = "SliderButton"
+			SliderButton.Parent = TheSliderBackground
+			SliderButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderButton.Size = UDim2.new(0, 174, 0, 15)
+			SliderButton.Font = Enum.Font.SourceSans
+			SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			SliderButton.TextSize = 14.000
+			
+			SliderValue.Name = "SliderValue"
+			SliderValue.Parent = TheSliderBackground
+			SliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderValue.BackgroundTransparency = 1.000
+			SliderValue.Size = UDim2.new(0, 174, 0, 15)
+			SliderValue.ZIndex = 5
+			SliderValue.Font = Enum.Font.GothamBold
+			SliderValue.Text = "0"
+			SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderValue.TextScaled = true
+			SliderValue.TextSize = 14.000
+			SliderValue.TextWrapped = true
+			
+			SliderBackground.Name = "SliderBackground"
+			SliderBackground.Parent = TheSliderBackground
+			SliderBackground.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+			SliderBackground.Size = UDim2.new(0, 0, 0, 15)
+			SliderBackground.ZIndex = 2
+			
+			SliderText.Name = "SliderText"
+			SliderText.Parent = SliderFrame
+			SliderText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderText.BackgroundTransparency = 1.000
+			SliderText.Size = UDim2.new(0, 92, 0, 23)
+			SliderText.ZIndex = 2
+			SliderText.Font = Enum.Font.GothamBold
+			SliderText.Text = text
+			SliderText.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderText.TextScaled = true
+			SliderText.TextSize = 14.000
+			SliderText.TextWrapped = true
+			
+			-----Variables-----
+			local mouse = game.Players.LocalPlayer:GetMouse()
+			local uis = game:GetService("UserInputService")
+			local Value;
+			
+			
+			
+			
+			-----Main Code-----
+			
+			SliderButton.MouseButton1Down:Connect(function()
+			    Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 174) * SliderBackground.AbsoluteSize.X) + tonumber(minvalue)) or 0
+			    pcall(function()
+			        callback(Value)
+			    end)
+			    SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 174), 0, 15)
+			    moveconnection = mouse.Move:Connect(function()
+			        SliderValue.Text = Value
+			        Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 174) * SliderBackground.AbsoluteSize.X) + tonumber(minvalue))
+			        pcall(function()
+						callback(Value)
+						SliderValue.Text = Value
+			        end)
+			        SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 174), 0, 15)
+			    end)
+			    releaseconnection = uis.InputEnded:Connect(function(Mouse)
+			        if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+			            Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 174) * SliderBackground.AbsoluteSize.X) + tonumber(minvalue))
+			            pcall(function()
+			                callback(Value)
+			            end)
+			            SliderBackground.Size = UDim2.new(0, math.clamp(mouse.X - SliderBackground.AbsolutePosition.X, 0, 174), 0, 15)
+			            moveconnection:Disconnect()
+			            releaseconnection:Disconnect()
+			        end
+			    end)
+			end)
+			
+		end
+		return frames
+	end
+	return tabs
+end
+
+local lib = bitlibrary:CreateWindow("Main")
