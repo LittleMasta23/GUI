@@ -1,3 +1,9 @@
+pcall(function()
+	if game.CoreGui:FindFirstChild("Bithub") then
+		game.CoreGui.Bithub:Destroy()
+	end
+end)
+
 local bitlibrary = {}
 
 function ShiftGui(Frame, List)
@@ -517,5 +523,3 @@ function bitlibrary:CreateWindow(Name)
 	end
 	return tabs
 end
-
-local lib = bitlibrary:CreateWindow("Main")
